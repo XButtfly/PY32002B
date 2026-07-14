@@ -1,0 +1,376 @@
+version: "4.1"
+name: PY32002B
+type: ARM
+deviceName: PY32F002Bx5
+packDir: .pack/Puya/PY32F0xx_DFP.1.1.9
+srcDirs: []
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders:
+    - name: Startup
+      files:
+        - path: $$Device:PY32F002Bx5$Device/Source/ARM/startup_py32f002bx5.s
+      folders: []
+    - name: User
+      files:
+        - path: Src/main.c
+        - path: Src/py32f002b_it.c
+        - path: Src/system_py32f002b.c
+        - path: Src/ws2812.c
+        - path: Src/sd1516.c
+        - path: Src/syscalls.c
+      folders: []
+    - name: Drivers
+      files:
+        - path: ../PY32F002B/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal.c
+        - path: ../PY32F002B/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_flash.c
+        - path: ../PY32F002B/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_cortex.c
+        - path: ../PY32F002B/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_ll_utils.c
+        - path: ../PY32F002B/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_ll_usart.c
+        - path: ../PY32F002B/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_ll_rcc.c
+        - path: ../PY32F002B/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_ll_exti.c
+        - path: ../PY32F002B/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_ll_adc.c
+      folders: []
+dependenceList: []
+outDir: build
+miscInfo:
+  uid: a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6
+targets:
+  PY32002B_Target:
+    cppPreprocessAttrs:
+      defineList:
+        - USE_FULL_LL_DRIVER
+        - PY32F002Bx5
+        - HSI_VALUE=24000000U
+      incList:
+        - .
+        - Inc
+        - ../PY32F002B/Drivers/CMSIS/Include
+        - ../PY32F002B/Drivers/CMSIS/Device/PY32F0xx/Include
+        - ../PY32F002B/Drivers/PY32F002B_HAL_Driver/Inc
+      libList: []
+    excludeList: []
+    settings:
+      debugger: cortex-debug
+    toolchain: GCC
+    toolchainConfigMap:
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M0+
+        floatingPointHardware: none
+        options:
+          version: 5
+          afterBuildTasks: []
+          asm-compiler:
+            defines: []
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            CXX_FLAGS: -mcpu=cortex-m0plus -mthumb -g3 -Og -Wall -Wextra
+            C_FLAGS: -mcpu=cortex-m0plus -mthumb -g3 -Og -Wall -Wextra -ffunction-sections -fdata-sections -Wno-unused-parameter -Wno-implicit-fallthrough
+            c99-mode: true
+            optimization: optimize-for-debug
+            warnings: all-warnings
+          global:
+            not-use-syscalls: true
+            output-debug-info: enable
+            use-newlib-nano: true
+          linker:
+            $outputTaskExcludes:
+              - .bin
+            link-scatter:
+              - Linker/PY32F002Bx5.ld
+            options: -Wl,--gc-sections --specs=nano.specs --specs=nosys.specs -Wl,--print-memory-usage -Wl,--no-warn-rwx-segments
+            output-format: elf
+        scatterFilePath: Linker/PY32F002Bx5.ld
+        storageLayout:
+          RAM:
+            - id: 1
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 2
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 3
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 1
+              isChecked: true
+              mem:
+                size: "0xc00"
+                startAddr: "0x20000000"
+              noInit: false
+              tag: IRAM
+            - id: 2
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: IRAM
+          ROM:
+            - id: 1
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 2
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 3
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 1
+              isChecked: true
+              isStartup: true
+              mem:
+                size: "0x6000"
+                startAddr: "0x8000000"
+              tag: IROM
+            - id: 2
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: IROM
+        useCustomScatterFile: true
+    uploadConfigMap:
+      OpenOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        interface: stlink
+        target: py32f002b
+    uploader: OpenOCD
+  Target 1:
+    cppPreprocessAttrs:
+      defineList:
+        - PY32F002Bx5
+        - USE_FULL_LL_DRIVER
+        - HSI_VALUE=24000000U
+      incList:
+        - .
+        - Inc
+        - ../PY32F002B/Drivers/CMSIS/Include
+        - ../PY32F002B/Drivers/CMSIS/Device/PY32F0xx/Include
+        - ../PY32F002B/Drivers/PY32F002B_HAL_Driver/Inc
+      libList: []
+    excludeList: []
+    settings:
+      debugger: cortex-debug
+    toolchain: AC5
+    toolchainConfigMap:
+      AC5:
+        archExtensions: ""
+        cpuType: Cortex-M0+
+        floatingPointHardware: none
+        options:
+          version: 4
+          afterBuildTasks: []
+          asm-compiler:
+            defines: []
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            CXX_FLAGS: --diag_suppress=1 --diag_suppress=1295
+            C_FLAGS: --diag_suppress=1 --diag_suppress=1295
+            c99-mode: true
+            gnu-extensions: true
+            one-elf-section-per-function: true
+            optimization: level-0
+            warnings: all-warnings
+          global:
+            output-debug-info: enable
+            use-microLIB: true
+          linker:
+            $disableOutputTask: false
+            $outputTaskExcludes:
+              - .bin
+              - .s19
+            output-format: elf
+            ro-base: "0x08000000"
+            rw-base: "0x20000000"
+            xo-base: ""
+        scatterFilePath: ""
+        storageLayout:
+          RAM:
+            - id: 1
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 2
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 3
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 1
+              isChecked: true
+              mem:
+                size: "0xc00"
+                startAddr: "0x20000000"
+              noInit: false
+              tag: IRAM
+            - id: 2
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: IRAM
+          ROM:
+            - id: 1
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 2
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 3
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 1
+              isChecked: true
+              isStartup: true
+              mem:
+                size: "0x6000"
+                startAddr: "0x8000000"
+              tag: IROM
+            - id: 2
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: IROM
+        useCustomScatterFile: false
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M0+
+        floatingPointHardware: none
+        options: ""
+        scatterFilePath: Linker/PY32F002Bx5.ld
+        storageLayout:
+          RAM:
+            - id: 1
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 2
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 3
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 1
+              isChecked: true
+              mem:
+                size: "0xc00"
+                startAddr: "0x20000000"
+              noInit: false
+              tag: IRAM
+            - id: 2
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: IRAM
+          ROM:
+            - id: 1
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 2
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 3
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 1
+              isChecked: true
+              isStartup: true
+              mem:
+                size: "0x6000"
+                startAddr: "0x8000000"
+              tag: IROM
+            - id: 2
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: IROM
+        useCustomScatterFile: true
+    uploadConfigMap:
+      OpenOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        interface: stlink
+        target: py32f002b
+    uploader: OpenOCD

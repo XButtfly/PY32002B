@@ -1,0 +1,11 @@
+{
+    "EIDE.OpenOCD.ExePath": "C:/Users/lin/.eide/tools/openocd_7a1adfbec_mingw32/bin/openocd.exe",
+    "cortex-debug.armToolchainPath": "C:/Users/lin/.eide/tools/gcc_arm/bin",
+    "files.associations": {
+        "*.S": "arm",
+        "*.s": "arm"
+    },
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "terminal.integrated.shellIntegration.enabled": false
+}

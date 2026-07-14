@@ -1,0 +1,25 @@
+# IDE (user-specific, contains local paths)
+/.vscode/
+/.settings
+/.eide/log
+/.eide.usr.ctx.json
+
+# Keil user files (contain username in filename)
+*.uvguix.*
+*.uvoptx
+*.map
+
+# Build output
+/build
+/bin
+/obj
+/out
+*.elf
+*.hex
+*.bin
+*.o
+*.d
+
+# EIDE template
+*.ept
+*.eide-template

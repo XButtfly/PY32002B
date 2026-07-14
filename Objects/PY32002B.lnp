@@ -1,0 +1,20 @@
+--cpu Cortex-M0+
+".\objects\startup_py32f002bx5.o"
+".\objects\main.o"
+".\objects\py32f002b_it.o"
+".\objects\system_py32f002b.o"
+".\objects\syscalls.o"
+".\objects\ws2812.o"
+".\objects\sd1516.o"
+".\objects\py32f002b_hal.o"
+".\objects\py32f002b_hal_flash.o"
+".\objects\py32f002b_hal_cortex.o"
+".\objects\py32f002b_ll_utils.o"
+".\objects\py32f002b_ll_usart.o"
+".\objects\py32f002b_ll_rcc.o"
+".\objects\py32f002b_ll_exti.o"
+".\objects\py32f002b_ll_adc.o"
+--library_type=microlib --strict --scatter ".\Objects\PY32002B.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\PY32002B.map" -o .\Objects\PY32002B.axf

@@ -1,0 +1,23 @@
+﻿{
+    "configurations": [
+        {
+            "name": "PY32F002B GCC",
+            "compilerPath": "C:/Users/lin/.eide/tools/gcc_arm/bin/arm-none-eabi-gcc.exe",
+            "includePath": [
+                "${workspaceFolder}/Inc",
+                "${workspaceFolder}/../PY32F002B/Drivers/CMSIS/Include",
+                "${workspaceFolder}/../PY32F002B/Drivers/CMSIS/Device/PY32F0xx/Include",
+                "${workspaceFolder}/../PY32F002B/Drivers/PY32F002B_HAL_Driver/Inc"
+            ],
+            "defines": [
+                "PY32F002Bx5",
+                "USE_FULL_LL_DRIVER",
+                "__GNUC__"
+            ],
+            "intelliSenseMode": "gcc-arm",
+            "cStandard": "c99",
+            "cppStandard": "c++11"
+        }
+    ],
+    "version": 4
+}
