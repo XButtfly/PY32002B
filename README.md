@@ -66,4 +66,3 @@ GCC 工具链: `arm-none-eabi-gcc` (通过 EIDE 或系统 PATH)
 | `Inc/sd1516.h` | 显示位段定义 |
 | `build/full_build.cmd` | GCC 编译脚本 |
 | `PY32002B.uvprojx` | Keil 工程 |
-| `HANDOFF.md` | 详细交接文档 |
